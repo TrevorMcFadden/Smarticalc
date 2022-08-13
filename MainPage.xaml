@@ -1,5 +1,5 @@
-﻿<Page x:Name="CalculatorPage"
-    x:Class="SmarticalcApp.MainPage"
+﻿<Page x:Name="SmarticalcMainPage"
+    x:Class="Smarticalc.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:SmarticalcApp"
@@ -10,6 +10,14 @@
 
     <Grid>
         <WebView x:Name="Navi" Source="ms-appx-web:///file/smarticalc.html"/>
-
+        <CommandBar x:Name="SmarticalcCommandBar" DefaultLabelPosition="Right" ClosedDisplayMode="Compact" VerticalAlignment="Bottom">
+            <CommandBar.Content>
+                <Grid/>
+            </CommandBar.Content>
+            <AppBarButton x:Name="BackButton" Icon="Back" Label="Back" ToolTipService.ToolTip="Go backward" TabIndex="0"/>
+            <AppBarButton x:Name="ForwardButton" Icon="Forward" Label="Forward" ToolTipService.ToolTip="Go forward" TabIndex="1"/>
+            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" ToolTipService.ToolTip="Refresh this page" TabIndex="2"/>
+            <AppBarButton x:Name="StopButton" Icon="Cancel" Label="Stop" ToolTipService.ToolTip="Stop refreshing" TabIndex="3"/>
+        </CommandBar>
     </Grid>
 </Page>
