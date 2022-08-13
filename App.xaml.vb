@@ -1,31 +1,31 @@
-﻿NotInheritable Class App
+NotInheritable Class App
     Inherits Application
-    Protected Overrides Sub OnLaunched(e As Windows.ApplicationModel.Activation.LaunchActivatedEventArgs)
-        Dim rootFrame As Frame = TryCast(Window.Current.Content, Frame)
-        If rootFrame Is Nothing Then
-            rootFrame = New Frame()
-            AddHandler rootFrame.NavigationFailed, AddressOf OnNavigationFailed
-            If e.PreviousExecutionState = ApplicationExecutionState.Terminated Then
+    Protected Overrides Sub OnLaunched(e As LaunchActivatedEventArgs)
+        Dim RootFrame As Frame = TryCast(Window.Current.Content, Frame)
+        If RootFrame Is Nothing Then
+            RootFrame = New Frame()
+            AddHandler RootFrame.NavigationFailed, AddressOf OnNavigationFailed
+            If e.PreviousExecutionState = 3 Then
             End If
-            Window.Current.Content = rootFrame
+            Window.Current.Content = RootFrame
         End If
         If e.PrelaunchActivated = False Then
-            If rootFrame.Content Is Nothing Then
-                rootFrame.Navigate(GetType(MainPage), e.Arguments)
+            If RootFrame.Content Is Nothing Then
+                RootFrame.Navigate(GetType(MainPage), e.Arguments)
             End If
-            Dim uwpTitleBar As Windows.UI.ViewManagement.ApplicationViewTitleBar = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView().TitleBar
-            uwpTitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent
-            uwpTitleBar.BackgroundColor = Windows.UI.Colors.Transparent
-            Dim coreTitleBar As Windows.ApplicationModel.Core.CoreApplicationViewTitleBar = Windows.ApplicationModel.Core.CoreApplication.GetCurrentView().TitleBar
-            coreTitleBar.ExtendViewIntoTitleBar = True
+            Dim UwpTitleBar As ApplicationViewTitleBar = ApplicationView.GetForCurrentView().TitleBar
+            UwpTitleBar.ButtonBackgroundColor = Windows.UI.Colors.Transparent
+            UwpTitleBar.BackgroundColor = Windows.UI.Colors.Transparent
+            Dim CoreTitleBar As Core.CoreApplicationViewTitleBar = Core.CoreApplication.GetCurrentView().TitleBar
+            CoreTitleBar.ExtendViewIntoTitleBar = True
             Window.Current.Activate()
         End If
     End Sub
     Private Sub OnNavigationFailed(sender As Object, e As NavigationFailedEventArgs)
-        Throw New Exception("Failed to load the page " + e.SourcePageType.FullName)
+        Throw New Exception("Failed to load Page " + e.SourcePageType.FullName)
     End Sub
     Private Sub OnSuspending(sender As Object, e As SuspendingEventArgs) Handles Me.Suspending
-        Dim deferral As SuspendingDeferral = e.SuspendingOperation.GetDeferral()
-        deferral.Complete()
+        Dim Deferral As SuspendingDeferral = e.SuspendingOperation.GetDeferral()
+        Deferral.Complete()
     End Sub
 End Class
