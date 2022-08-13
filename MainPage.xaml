@@ -14,10 +14,8 @@
             <CommandBar.Content>
                 <Grid/>
             </CommandBar.Content>
-            <AppBarButton x:Name="BackButton" Icon="Back" Label="Back" ToolTipService.ToolTip="Go backward" TabIndex="0"/>
-            <AppBarButton x:Name="ForwardButton" Icon="Forward" Label="Forward" ToolTipService.ToolTip="Go forward" TabIndex="1"/>
-            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" ToolTipService.ToolTip="Refresh this page" TabIndex="2"/>
-            <AppBarButton x:Name="StopButton" Icon="Cancel" Label="Stop" ToolTipService.ToolTip="Stop refreshing" TabIndex="3"/>
+            <AppBarButton x:Name="RefreshButton" Icon="Refresh" Label="Refresh" ToolTipService.ToolTip="Refresh this page" TabIndex="0"/>
+            <AppBarButton x:Name="StopButton" Icon="Cancel" Label="Stop" ToolTipService.ToolTip="Stop refreshing" TabIndex="1"/>
         </CommandBar>
     </Grid>
 </Page>
